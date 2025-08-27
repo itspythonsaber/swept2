@@ -1,9 +1,0 @@
-{
-  "name": "swept-bet-functions",
-  "version": "1.0.0",
-  "main": "place-bet.js",
-  "dependencies": {
-    "@solana/web3.js": "^2.0.0",
-    "buffer": "^6.0.3"
-  }
-}
