@@ -1,0 +1,80 @@
+body {
+  background: linear-gradient(135deg, #020403, #294918);
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#game {
+  background: #1c1c1c;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  padding: 40px;
+  width: 350px;
+  text-align: center;
+}
+#game h1 {
+  color: #00ffff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+input {
+  background: #333;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px;
+  width: 80%;
+  transition: border-color 0.3s;
+}
+input:focus {
+  border-color: #09A502;
+  outline: none;
+}
+button {
+  background: #09A502;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  padding: 15px 30px;
+  width: 80%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #5EB0F3;
+}
+#result {
+  background: #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 10px;
+  display: none;
+}
+
+#graph-container {
+  margin-top: 30px;
+  padding: 10px;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+#gameGraph {
+  background: #111;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+}

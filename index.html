@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>swept.bet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+  <h1>swept.bet</h1>
+  <input id="wallet" placeholder="Your wallet address">
+  <input id="bet" type="number" placeholder="Bet amount">
+  <button id="placeBet">Place Bet</button>
+  <div id="result"></div>
+<div id="graph-container">
+  <canvas id="gameGraph" width="300" height="150"></canvas>
+</div>
+</div>
+
+<script>
+document.getElementById('placeBet').onclick = async () => {
+  const wallet = document.getElementById('wallet').value;
+  const betAmount = parseFloat(document.getElementById('bet').value);
+  const res = await fetch('/.netlify/functions/place-bet', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userWallet: wallet, betAmount })
+  });
+  const data = await res.json();
+  const resultDiv = document.getElementById('result');
+  resultDiv.style.display = "block";
+  resultDiv.innerText = `Multiplier: ${data.multiplier}x, Payout: ${data.payout}`;
+};
+const canvas = document.getElementById("gameGraph");
+const ctx = canvas.getContext("2d");
+let graphData = [];
+function updateGraph(multiplier) {
+  graphData.push(multiplier);
+  if(graphData.length > 30) graphData.shift();
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "#0f0";
+  for(let i=0; i<graphData.length; i++){
+    const h = graphData[i]*50;
+    ctx.fillRect(i*10, canvas.height - h, 8, h);
+  }
+}
+document.getElementById(placeBet).addEventListener(click, async () => {
+  const res = await fetch(/.netlify/functions/place-bet, {
+    method: POST, headers:{Content-Type:application/json},
+    body: JSON.stringify({
+      userWallet: document.getElementById(wallet).value,
+      betAmount: parseFloat(document.getElementById(bet).value)
+    })
+  });
+  const data = await res.json();
+  updateGraph(data.multiplier);
+});
+</script>
+</body>
+</html>
