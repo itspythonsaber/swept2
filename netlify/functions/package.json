@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "main": "place-bet.js",
   "scripts": {
-    "build": "npx hugo"
+    "build": "echo 'Nothing to build; site is in root'"
   },
   "dependencies": {
     "@solana/web3.js": "^2.0.0",
     "buffer": "^6.0.3"
-  },
-  "devDependencies": {
-    "hugo-bin": "^0.111.0"
   }
 }
