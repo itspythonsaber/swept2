@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "."                # your site output is in root
+  functions = "netlify/functions"  # default Netlify functions folder
+
+[context.production.environment]
+  NODE_VERSION = "22"
